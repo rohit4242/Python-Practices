@@ -1,8 +1,8 @@
-# Write a program to input a number and print whether it is Even
-# or Odd Number.
+# Write a program to input radius of a circle, and print area of 
+# that circle.
 
-num = int(input("Enter Your Number: "))
+def Area_of_circle(Radius):
+    return 3.14 * Radius * Radius
 
-result = 'Even' if num % 2 == 0 else 'Odd'
-
-print(result)
+Radius = float(input("Enter The Radius of the circle: "))
+print("The Area of the circle is: ",Area_of_circle(Radius))
