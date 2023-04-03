@@ -72,6 +72,54 @@ class Library:
         else:
             print(f"Book not found: {title}")
 
+    def sortedView(self):
+        while True:
+            print("1. Sort by Title")
+            print("2. Sort by Author")
+            print("3. Sort by Publisher")
+            print("4. Sort by Year of Publication")
+            print("5. Sort by Price")
+            print("6. Exit")
+
+            choice = input("Enter choice: ")
+
+            if choice == '1':
+                sorted_books = sorted(self.books, key=lambda book: book[0])
+                print("Sorted by Title:")
+                for book in sorted_books:
+                    print(book)
+
+            elif choice == '2':
+                sorted_books = sorted(self.books, key=lambda book: book[1])
+                print("Sorted by Author:")
+                for book in sorted_books:
+                    print(book)
+
+            elif choice == '3':
+                sorted_books = sorted(self.books, key=lambda book: book[2])
+                print("Sorted by Publisher:")
+                for book in sorted_books:
+                    print(book)
+
+            elif choice == '4':
+                sorted_books = sorted(self.books, key=lambda book: book[4])
+                print("Sorted by Year of Publication:")
+                for book in sorted_books:
+                    print(book)
+
+            elif choice == '5':
+                sorted_books = sorted(self.books, key=lambda book: book[5])
+                print("Sorted by Price:")
+                for book in sorted_books:
+                    print(book)
+
+            elif choice == '6':
+                break
+
+            else:
+                print("Invalid choice. Please try again.")
+         
+
 def readData():
     with open("Sample Text Files/books.txt", "r") as file:
         data = [line.strip().split("|") for line in file]
@@ -94,8 +142,9 @@ while True:
     print("3. Delete Book")
     print("4. List Book")
     print("5. Search Book")
+    print("6. Sorted View")
 
-    print("6. Exit")
+    print("7. Exit")
     choice = input("Enter choice: ")
 
     if choice == '1':
@@ -125,6 +174,9 @@ while True:
         library.searchBook(title)
  
     elif choice == '6':
+        library.sortedView()
+    
+    elif choice == '7':
         exit(0)
 
 
